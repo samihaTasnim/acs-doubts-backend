@@ -11,4 +11,5 @@ router.patch('/:id', ClassController.updateACLass);
 
 router.delete('/:id', ClassController.deleteAClass);
 
+
 module.exports = router;
