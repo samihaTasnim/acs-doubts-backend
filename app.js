@@ -1,18 +1,18 @@
 const express = require('express');
 const createError = require('http-errors');
 const dotenv = require('dotenv').config();
+const cors = require('cors')
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 require('./initDB')();
 
-const ClassRoute = require('./Routes/Class.route');
-const AnnouncementRoute = require('./Routes/Announcement.route');
-app.use('/class', ClassRoute);
-app.use('/announcement', AnnouncementRoute);
+const QuestionRoute = require('./Routes/Question.route');
+app.use('/question', QuestionRoute);
 
 app.use((req, res, next) => {
   next(createError(404, 'Not found'));
@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log('Server started on port ' + PORT + '...');

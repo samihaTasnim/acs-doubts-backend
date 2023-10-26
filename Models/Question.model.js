@@ -1,40 +1,36 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ClassSchema = new Schema({
-  id: {
-    type: Number,
-    required: true
-  },
+const QuestionSchema = new Schema({
   date: {
     type: String,
     required: true
   },
-  day: {
-    type: String,
-    required: true
-  },
-
-  classTime: {
-    type: String,
-    required: true
-  },
-
   subject: {
     type: String,
     required: true
   },
-
-  chapterTopic: {
+  paper: {
+    type: Number,
+    required: true
+  },
+  chapter: {
     type: String,
     required: true
   },
-
-  instructor: {
+  source: {
     type: String,
     required: true
-  }
+  }, 
+  question: {
+    type: String,
+    required: true
+  },
+  img: {
+    type: String,
+    required: true
+  },
 });
 
-const Class = mongoose.model('class', ClassSchema);
-module.exports = Class;
+const Question = mongoose.model('question', QuestionSchema);
+module.exports = Question;
